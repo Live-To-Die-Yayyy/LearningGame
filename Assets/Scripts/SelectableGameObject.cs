@@ -78,9 +78,13 @@ public class SelectableGameObject : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (!m_Selected)
+        if (m_Selected)
+        {
+            m_SelectableRendererComponent.material.color = m_SelectedColor;
+        }
+        else
         {
             m_SelectableRendererComponent.material.color = m_InitialColor;
         }
-    }
+    }   
 }

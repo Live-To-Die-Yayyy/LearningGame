@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1998,7 +1998,7 @@ MonoBehaviour:
       m_Calls: []
   m_FadeDuration: 1
   m_FaderCanvasGroup: {fileID: 387320176}
-  m_TitleUIController: {fileID: 0}
+  m_LevelSelectionText: {fileID: 1931187733}
 --- !u!114 &1422021227
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,6 +27,11 @@ public class UIController : StateMachine
         GameManager.Instance.Resume();
     }
 
+    public void OnClickGoHome()
+    {
+        GameManager.Instance.GoHome();
+    }
+
     public void ChangeLevelSelectionText(string text)
     {
         m_LevelSelectionText.text = text;

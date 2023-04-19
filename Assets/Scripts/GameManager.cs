@@ -58,6 +58,10 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(GoToTitleScreen(m_SecondsToWaitStartGame));
     }
 
+    public void GoHome()
+    {
+        StartCoroutine(GoToTitleScreen(0));
+    }
     private void HandleMouseDisplayAndLock()
     {
         if (!m_AlwaysDisplayMouse)

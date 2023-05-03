@@ -31,6 +31,18 @@ public class LevelManager : Singleton<LevelManager>
         m_Directors = GetComponents<PlayableDirector>();
     }
 
+    public void OnClickEnter()
+    {
+        if (EnterSelectionManager.Instance.SelectedAnswer.name == ("Correct"))
+        {
+            Debug.Log("Correct");
+        }
+        else
+        {
+            Debug.Log("Incorrect");
+        }
+    }
+    
     public void MoveToTransitionDestination(SceneTransitionDestination transitionDestination)
     {
         if (transitionDestination == null)

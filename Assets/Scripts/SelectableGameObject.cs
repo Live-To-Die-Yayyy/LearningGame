@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using TMPro;
 public class SelectableGameObject : MonoBehaviour
 {
     [SerializeField] Renderer m_SelectableRendererComponent = null;
     [SerializeField] Color m_SelectedColor = Color.blue;
     [SerializeField] Color m_HighlightedColor = Color.red;
+    [SerializeField] TMP_Text m_SelectableText = null;
 
     private Color m_InitialColor = Color.white;
+    private Color m_InitialTextColor = Color.white;
     private bool m_Selected = false;
 
     public UnityEvent<SelectableGameObject> OnSelect = null;
@@ -29,6 +31,7 @@ public class SelectableGameObject : MonoBehaviour
         {
             m_Selected = true;
             m_SelectableRendererComponent.material.color = m_SelectedColor;
+            m_SelectableText.color = m_SelectedColor;
             OnSelect.Invoke(this);
         }
     }
@@ -39,6 +42,7 @@ public class SelectableGameObject : MonoBehaviour
         {
             m_Selected = false;
             m_SelectableRendererComponent.material.color = m_InitialColor;
+            m_SelectableText.color = m_InitialTextColor;
             OnDeselect.Invoke(this);
         }
     }
@@ -46,11 +50,13 @@ public class SelectableGameObject : MonoBehaviour
     private void Awake()
     {
         m_InitialColor = m_SelectableRendererComponent.material.color;
+        m_InitialTextColor = m_SelectableText.color;
     }
 
     private void OnMouseEnter()
     {
         m_SelectableRendererComponent.material.color = m_HighlightedColor;
+        m_SelectableText.color = m_HighlightedColor;
     }
 
     private void OnMouseDown()
@@ -81,10 +87,12 @@ public class SelectableGameObject : MonoBehaviour
         if (m_Selected)
         {
             m_SelectableRendererComponent.material.color = m_SelectedColor;
+            m_SelectableText.color = m_SelectedColor;
         }
         else
         {
             m_SelectableRendererComponent.material.color = m_InitialColor;
+            m_SelectableText.color = m_InitialTextColor;
         }
     }   
 }

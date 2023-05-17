@@ -27,10 +27,18 @@ public class EnterSelectionManager : Singleton<EnterSelectionManager>
             }
         }
         m_SelectedAnswer = answer;
+        if (EnterSelectionManager.Instance.SelectedAnswer != null)
+        {
+            Debug.Log("No answer selected");
+        }
+        
     }
 
     public void OnAnswerDeselected(GameObject go)
     {
         m_SelectedAnswer = null;
     }
+
+    
+        
 }

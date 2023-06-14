@@ -35,11 +35,11 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (EnterSelectionManager.Instance.SelectedAnswer.name == ("Correct"))
         {
-            Debug.Log("Correct");
+            GameManager.Instance.GoHome();
         }
         else
         {
-            Debug.Log("Incorrect");
+            GameManager.Instance.GameOver();
         }
     }
     

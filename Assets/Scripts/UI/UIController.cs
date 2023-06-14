@@ -22,6 +22,14 @@ public class UIController : StateMachine
         }
     }
 
+    public void OnClickUp()
+    {
+        CameraLevelManager.Instance.GoUpLevel();
+    }
+    public void OnClickDown()
+    {
+        CameraLevelManager.Instance.GoDownLevel();
+    }
     public void OnClickResume()
     {
         GameManager.Instance.Resume();

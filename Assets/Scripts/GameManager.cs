@@ -12,7 +12,8 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private UIController m_UIController = null;
     [SerializeField] private DialogueController m_DialogueController = null;
-    [SerializeField] private float m_SecondsToWaitGameOver = 2f;
+    [SerializeField] private float m_SecondsToWaitIncorrect = 2f;
+    [SerializeField] private float m_SecondsToWaitCorrect = 2f;
     [SerializeField] private float m_SecondsToWaitStartGame = 2f;
 
     private bool m_AlwaysDisplayMouse = true;
@@ -86,10 +87,16 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void GameOver()
+    public void Correct()
     {
-        m_UIController.ChangeState("GameOver");
-        StartCoroutine(GoToTitleScreen(m_SecondsToWaitGameOver));
+        m_UIController.ChangeState("Correct");
+        StartCoroutine(GoToTitleScreen(m_SecondsToWaitCorrect));
+    }
+
+    public void Incorrect()
+    {
+        m_UIController.ChangeState("Incorrect");
+        StartCoroutine(GoToTitleScreen(m_SecondsToWaitIncorrect));
     }
 
     public void Resume()

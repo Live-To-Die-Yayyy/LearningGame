@@ -35,14 +35,26 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (EnterSelectionManager.Instance.SelectedAnswer.name == ("Correct"))
         {
-            GameManager.Instance.GoHome();
+            StartCoroutine(Correct());
         }
         else
         {
-            GameManager.Instance.GameOver();
+            StartCoroutine(Incorrect());
         }
     }
-    
+
+    private IEnumerator Correct()
+    {
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.Correct();
+    }
+
+    private IEnumerator Incorrect()
+    {
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.Incorrect();
+    }
+
     public void MoveToTransitionDestination(SceneTransitionDestination transitionDestination)
     {
         if (transitionDestination == null)

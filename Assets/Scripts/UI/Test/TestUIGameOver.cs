@@ -7,7 +7,7 @@ public class TestUIGameOver : State
 {
 	void OnEnable()
 	{
-		GameManager.Instance.GameOver();
+		GameManager.Instance.Incorrect();
 		ChangeState("None");
 	}
 

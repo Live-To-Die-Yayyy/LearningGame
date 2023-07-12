@@ -55,6 +55,10 @@ public class SelectableGameObject : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (MouseManager.Instance.IsPointerOverUIElement())
+        {
+            return;
+        }
         m_SelectableRendererComponent.material.color = m_HighlightedColor;
         m_SelectableText.color = m_HighlightedColor;
     }
@@ -66,6 +70,11 @@ public class SelectableGameObject : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if(MouseManager.Instance.IsPointerOverUIElement())
+        {
+            return;
+        }
+
         if (m_Selected)
         {
             DeselectGameObject();
@@ -84,6 +93,11 @@ public class SelectableGameObject : MonoBehaviour
 
     void OnMouseExit()
     {
+        if (MouseManager.Instance.IsPointerOverUIElement())
+        {
+            return;
+        }
+
         if (m_Selected)
         {
             m_SelectableRendererComponent.material.color = m_SelectedColor;
@@ -94,5 +108,22 @@ public class SelectableGameObject : MonoBehaviour
             m_SelectableRendererComponent.material.color = m_InitialColor;
             m_SelectableText.color = m_InitialTextColor;
         }
-    }   
+         
+    }
+        private void Update()
+    {
+        if (MouseManager.Instance.IsPointerOverUIElement())
+        {
+            if(m_Selected)
+        {
+                m_SelectableRendererComponent.material.color = m_SelectedColor;
+                m_SelectableText.color = m_SelectedColor;
+            }
+        else
+            {
+                m_SelectableRendererComponent.material.color = m_InitialColor;
+                m_SelectableText.color = m_InitialTextColor;
+            }
+        }
+    }
 }

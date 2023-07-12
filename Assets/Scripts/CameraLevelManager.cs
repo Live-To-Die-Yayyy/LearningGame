@@ -10,9 +10,10 @@ public class CameraLevelManager : Singleton<CameraLevelManager>
     public CinemachineFreeLook Camera; 
     public GameObject[] FollowObjects;
     public GameObject[] LookAtObjects;
+    public int MaxLevel = 4;
     public void GoUpLevel()
     {
-        if (CurrentLevelNumber == 3)
+        if (CurrentLevelNumber == MaxLevel)
         {
             return;
         }
